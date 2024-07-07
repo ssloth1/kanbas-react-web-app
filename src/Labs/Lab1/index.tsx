@@ -4,7 +4,6 @@
 {
   /** Course: CS5610 - Web Development */
 }
-
 export default function Lab1() {
   return (
     <div id="wd-lab1">

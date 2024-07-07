@@ -22,6 +22,22 @@ export default function TOC() {
         </a>
       </li>
       <li>
+        <a id="wd-a4" href="#/Labs/Lab4">
+          Lab 4
+        </a>
+      </li>
+      <li>
+        <a id="wd-a5" href="#/Labs/Lab5">
+          Lab 5
+        </a>
+      </li>
+      <li>
+        <a id="wd-a6" href="#/Labs/Lab6">
+          Lab 6
+        </a>
+      </li>
+
+      <li>
         <a id="wd-k" href="#/Kanbas">
           Kanbas
         </a>

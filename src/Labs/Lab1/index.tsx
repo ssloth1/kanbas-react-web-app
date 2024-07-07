@@ -1,7 +1,18 @@
+{
+  /** Author: James Bebarski */
+}
+{
+  /** Course: CS5610 - Web Development */
+}
+
 export default function Lab1() {
   return (
     <div id="wd-lab1">
       <h2>Lab 1</h2>
+      <ul>
+        <li>Author: James Bebarski</li>
+        <li>Course: CS5610 - Web Development</li>
+      </ul>
       <h3>HTML Examples</h3>
       <div id="wd-h-tag">
         <h4>Heading Tags</h4>
@@ -353,7 +364,10 @@ export default function Lab1() {
         <br />
         <h4>Github Repository</h4>
         Please&nbsp;
-        <a id="wd-github" href="https://github.com/ssloth1/kanbas-react-web-app">
+        <a
+          id="wd-github"
+          href="https://github.com/ssloth1/kanbas-react-web-app"
+        >
           <span>click here</span>
         </a>
         &nbsp;to see my repository

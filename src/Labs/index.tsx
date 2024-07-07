@@ -3,10 +3,13 @@ import { Route, Routes, Navigate } from "react-router";
 import TOC from "./TOC"
 import Lab2 from "./Lab2";
 import Lab3 from "./Lab3";
+
+{/** Author: James Bebarski */}
 export default function Labs() {
   return (
     <div>
       <h1>Labs</h1>
+      <p>Author: James Bebarski</p>
       <TOC />
       <Routes>
         <Route path="/" element={<Navigate to="Lab1" />} />

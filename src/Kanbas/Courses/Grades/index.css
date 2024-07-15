@@ -1,0 +1,22 @@
+.wd-select-wrapper {
+    position: relative;
+  }
+  
+  .wd-select {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  
+  .wd-select-icon-left {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    transform: translateY(-50%);
+  }
+  
+  .wd-select-icon-right {
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    transform: translateY(-50%);
+  }

@@ -29,55 +29,49 @@ export default function Assignments() {
           </div>
           <ul className="wd-assignments list-group rounded-0">
             <li className="wd-assignment list-group-item p-3 ps-1">
-              <div className="d-flex align-items-center">
+              <Link to="/Kanbas/Courses/1234/Assignments/:id" className="d-flex align-items-center text-decoration-none text-dark">
                 <BsGripVertical className="fs-3" />
                 <LuClipboardEdit className="me-2 fs-5" style={{ color: 'green' }} />
                 <div className="ps-4">
-                  <Link to="/courses/assignment-editor" className="text-decoration-none">
-                    A1 - ENV + HTML
-                  </Link>
+                  A1 - ENV + HTML
                   <div className="text-muted">
-                    <span className="text-danger">Multiple Modules</span> | Not available until May 6 at 12:00am
+                    <span className="text-danger">Multiple Modules</span> | <strong>Not available until</strong> May 6 at 12:00am
                     <br />
                     <strong>Due</strong> May 13 at 11:59pm | 100 pts
                   </div>
                 </div>
-                <AssignmentcontrolButtons/>
-              </div>
+                <AssignmentcontrolButtons />
+              </Link>
             </li>
             <li className="wd-assignment list-group-item p-3 ps-1">
-              <div className="d-flex align-items-center">
+            <Link to="/Kanbas/Courses/1234/Assignments/:id" className="d-flex align-items-center text-decoration-none text-dark">
                 <BsGripVertical className="fs-3" />
                 <LuClipboardEdit className="me-2 fs-5" style={{ color: 'green' }} />
                 <div className="ps-4">
-                  <Link to="/courses/assignment-editor" className="text-decoration-none">
-                    A2 - CSS + BOOTSTRAP
-                  </Link>
+                  A2 - CSS + BOOTSTRAP
                   <div className="text-muted">
-                    <span className="text-danger">Multiple Modules</span> | Not available until May 13 at 12:00am
+                    <span className="text-danger">Multiple Modules</span> | <strong>Not available until</strong> May 13 at 12:00am
                     <br />
                     <strong>Due</strong> May 20 at 11:59pm | 100 pts
                   </div>
                 </div>
                 <AssignmentcontrolButtons />
-              </div>
+              </Link>
             </li>
             <li className="wd-assignment list-group-item p-3 ps-1">
-              <div className="d-flex align-items-center">
+            <Link to="/Kanbas/Courses/1234/Assignments/:id" className="d-flex align-items-center text-decoration-none text-dark">
                 <BsGripVertical className="fs-3" />
                 <LuClipboardEdit className="me-2 fs-5" style={{ color: 'green' }} />
                 <div className="ps-4">
-                  <Link to="/courses/assignment-editor" className="text-decoration-none">
-                    A3 - JAVASCRIPT + REACT
-                  </Link>
+                  A3 - JAVASCRIPT + REACT
                   <div className="text-muted">
-                    <span className="text-danger">Multiple Modules</span> | Not available until May 20 at 12:00am
+                    <span className="text-danger">Multiple Modules</span> | <strong>Not available until</strong> May 20 at 12:00am
                     <br />
                     <strong>Due</strong> May 27 at 11:59pm | 100 pts
                   </div>
                 </div>
                 <AssignmentcontrolButtons />
-              </div>
+              </Link>
             </li>
           </ul>
         </li>

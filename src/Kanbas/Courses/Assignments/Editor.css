@@ -1,0 +1,14 @@
+.wd-select-wrapper {
+  position: relative;
+}
+
+.wd-select {
+  padding-right: 2.5rem;
+}
+
+.wd-select-icon {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+}

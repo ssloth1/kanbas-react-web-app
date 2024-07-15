@@ -1,11 +1,10 @@
 import { FaPlus } from "react-icons/fa6";
-import { MdCancel } from "react-icons/md";
 import GreenCheckmark from "./GreenCheckmark";
 import GreyUnpublish from "./GreyUnpublish";
 
 export default function ModulesControls() {
     return (
-        <div id="wd-modules-controls" className="text-nowrap">
+        <div id="wd-modules-controls" className="lex-wrap">
             <button id="wd-add-module-btn" className="btn btn-lg btn-danger me-1 float-end">
                 <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
                 Module

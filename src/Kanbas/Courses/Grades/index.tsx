@@ -62,7 +62,7 @@ export default function Grades() {
 
           <tbody>
             <tr>
-              <td>Jim Bebarski</td>
+              <td className="text-danger">Jim Bebarski</td>
               <td>100%</td>
               <td>100%</td>
               <td>100%</td>
@@ -71,7 +71,7 @@ export default function Grades() {
               <td>100%</td>
             </tr>
             <tr>
-              <td>Ricky Bobby</td>
+              <td className="text-danger">Ricky Bobby</td>
               <td>100%</td>
               <td>100%</td>
               <td>100%</td>
@@ -80,7 +80,7 @@ export default function Grades() {
               <td>100%</td>
             </tr>
             <tr>
-              <td>Hellen Keller</td>
+              <td className="text-danger">Hellen Keller</td>
               <td>100%</td>
               <td>100%</td>
               <td>100%</td>
@@ -89,7 +89,7 @@ export default function Grades() {
               <td>100%</td>
             </tr>
             <tr>
-              <td>Paul Atriedes</td>
+              <td className="text-danger">Paul Atriedes</td>
               <td>100%</td>
               <td>100%</td>
               <td>100%</td>
@@ -98,7 +98,7 @@ export default function Grades() {
               <td>100%</td>
             </tr>
             <tr>
-              <td>John Snow</td>
+              <td className="text-danger">John Snow</td>
               <td>100%</td>
               <td>100%</td>
               <td>100%</td>

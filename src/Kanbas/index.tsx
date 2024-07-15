@@ -1,4 +1,3 @@
-import React from 'react';
 import "./styles.css"
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Dashboard from './Dashboard';

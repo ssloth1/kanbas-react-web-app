@@ -1,0 +1,36 @@
+.nav-link {
+    background-color: black;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link .fs-1 {
+    color: #D41C2B;
+    transition: color 0.3s;
+}
+
+.nav-link .account-icon {
+    color: white;
+    transition: color 0.3s;
+}
+
+.nav-link.active {
+    background-color: white !important;
+    color: #D41C2B !important;
+}
+
+.nav-link.active .fs-1 {
+    color: #D41C2B !important;
+}
+
+.nav-link.active .account-icon {
+    color: #D41C2B !important;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.nav-link:hover .fs-1 {
+    color: #D41C2B;
+}

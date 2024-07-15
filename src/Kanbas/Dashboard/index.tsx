@@ -1,153 +1,117 @@
+import './index.css';
+
 export default function Dashboard() {
   return (
     <div id="wd-dashboard">
       <h1 id="wd-dashboard-title">Dashboard</h1>
       <hr />
-      <h2 id="wd-dashboard-published">Published Courses (8)</h2>
+      <h2 id="wd-dashboard-published">Published Courses (12)</h2>
       <hr />
-      <div id="wd-dashboard-courses">
-        <div className="wd-dashboard-course">
-          <img src="/images/reactjs.jpg" width={200} alt="React JS" />
-          <div>
-            <a
-              className="wd-dashboard-course-link"
-              href="#/Kanbas/Courses/5001/Home"
-            >
-              CS5001 Intensive Foundations of Computer Science
-            </a>
-            <p className="wd-dashboard-course-title">
-              Learn the basics of computer science
-            </p>
-            <a href="#/Kanbas/Courses/5001/Home"> Go </a>
+      <div id="wd-dashboard-courses" className="container">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+          <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+            <div className="card">
+              <a className="wd-dashboard-course-link text-decoration-none text-dark" href="#/Kanbas/Courses/1234/Home">
+                <img src="/images/reactjs.jpg" className="card-img-top" alt="React JS" />
+                <div className="card-body">
+                  <h5 className="wd-dashboard-course-title card-title" title="CS5610 Web Development">CS5610 Web Development</h5>
+                  <p className="wd-dashboard-course-year" title="2024">Summer 2024</p>
+                  <p className="card-text" title="Full Stack software developer">Developing web applications</p>
+                  <button className="btn btn-primary">Go</button>
+                </div>
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="wd-dashboard-course">
-          <img src="/images/reactjs.jpg" width={200} alt="Algorithms" />
-          <div>
-            <a
-              className="wd-dashboard-course-link"
-              href="#/Kanbas/Courses/5800/Home"
-            >
-              C5800 Algorithms
-            </a>
-            <p className="wd-dashboard-course-title">
-              Advanced algorithms and data structures
-            </p>
-            <a href="#/Kanbas/Courses/5800/Home"> Go </a>
+          <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+            <div className="card">
+              <a className="wd-dashboard-course-link text-decoration-none text-dark" href="#/Kanbas/Courses/5001/Home">
+                <img src="/images/reactjs.jpg" className="card-img-top" alt="CS5001 Intensive Foundations of Computer Science" />
+                <div className="card-body">
+                  <h5 className="wd-dashboard-course-title card-title" title="CS5001 Intensive Foundations of Computer Science">CS5001 Intensive Foundations of Computer Science</h5>
+                  <p className="wd-dashboard-course-year" title="2024">Summer 2024</p>
+                  <p className="card-text" title="Learn the basics of computer science">Learn the basics of computer science</p>
+                  <button className="btn btn-primary">Go</button>
+                </div>
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="wd-dashboard-course">
-          <img
-            src="/images/reactjs.jpg"
-            width={200}
-            alt="Mobile Application Development"
-          />
-          <div>
-            <a
-              className="wd-dashboard-course-link"
-              href="#/Kanbas/Courses/5520/Home"
-            >
-              CS5520 Mobile Application Development
-            </a>
-            <p className="wd-dashboard-course-title">
-              Developing mobile applications
-            </p>
-            <a href="#/Kanbas/Courses/5520/Home"> Go </a>
+          <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+            <div className="card">
+              <a className="wd-dashboard-course-link text-decoration-none text-dark" href="#/Kanbas/Courses/5800/Home">
+                <img src="/images/reactjs.jpg" className="card-img-top" alt="Algorithms" />
+                <div className="card-body">
+                  <h5 className="wd-dashboard-course-title card-title" title="C5800 Algorithms">C5800 Algorithms</h5>
+                  <p className="wd-dashboard-course-year" title="2024">Summer 2024</p>
+                  <p className="card-text" title="Advanced algorithms and data structures">Advanced algorithms and data structures</p>
+                  <button className="btn btn-primary">Go</button>
+                </div>
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="wd-dashboard-course">
-          <img
-            src="/images/reactjs.jpg"
-            width={200}
-            alt="Object Oriented Design"
-          />
-          <div>
-            <a
-              className="wd-dashboard-course-link"
-              href="#/Kanbas/Courses/5004/Home"
-            >
-              CS5004 Object Oriented Design
-            </a>
-            <p className="wd-dashboard-course-title">
-              Principles of OOP and design patterns
-            </p>
-            <a href="#/Kanbas/Courses/5004/Home"> Go </a>
+          <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+            <div className="card">
+              <a className="wd-dashboard-course-link text-decoration-none text-dark" href="#/Kanbas/Courses/5520/Home">
+                <img src="/images/reactjs.jpg" className="card-img-top" alt="Mobile Application Development" />
+                <div className="card-body">
+                  <h5 className="wd-dashboard-course-title card-title" title="CS5520 Mobile Application Development">CS5520 Mobile Application Development</h5>
+                  <p className="wd-dashboard-course-year" title="2024">Summer 2024</p>
+                  <p className="card-text" title="Developing mobile applications">Developing mobile applications</p>
+                  <button className="btn btn-primary">Go</button>
+                </div>
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="wd-dashboard-course">
-          <img
-            src="/images/reactjs.jpg"
-            width={200}
-            alt="Discrete Structures"
-          />
-          <div>
-            <a
-              className="wd-dashboard-course-link"
-              href="#/Kanbas/Courses/5002/Home"
-            >
-              CS5002 Discrete Structures
-            </a>
-            <p className="wd-dashboard-course-title">
-              Mathematical structures in CS
-            </p>
-            <a href="#/Kanbas/Courses/5002/Home"> Go </a>
+          <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+            <div className="card">
+              <a className="wd-dashboard-course-link text-decoration-none text-dark" href="#/Kanbas/Courses/5004/Home">
+                <img src="/images/reactjs.jpg" className="card-img-top" alt="Object Oriented Design" />
+                <div className="card-body">
+                  <h5 className="wd-dashboard-course-title card-title" title="CS5004 Object Oriented Design">CS5004 Object Oriented Design</h5>
+                  <p className="wd-dashboard-course-year" title="2024">Summer 2024</p>
+                  <p className="card-text" title="Principles of OOP and design patterns">Principles of OOP and design patterns</p>
+                  <button className="btn btn-primary">Go</button>
+                </div>
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="wd-dashboard-course">
-          <img
-            src="/images/reactjs.jpg"
-            width={200}
-            alt="Information Assurance"
-          />
-          <div>
-            <a
-              className="wd-dashboard-course-link"
-              href="#/Kanbas/Courses/5010/Home"
-            >
-              CY5010 Information Assurance
-            </a>
-            <p className="wd-dashboard-course-title">
-              Security principles and practices
-            </p>
-            <a href="#/Kanbas/Courses/5010/Home"> Go </a>
+          <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+            <div className="card">
+              <a className="wd-dashboard-course-link text-decoration-none text-dark" href="#/Kanbas/Courses/5002/Home">
+                <img src="/images/reactjs.jpg" className="card-img-top" alt="Discrete Structures" />
+                <div className="card-body">
+                  <h5 className="wd-dashboard-course-title card-title" title="CS5002 Discrete Structures">CS5002 Discrete Structures</h5>
+                  <p className="wd-dashboard-course-year" title="2024">Summer 2024</p>
+                  <p className="card-text" title="Mathematical structures in CS">Mathematical structures in CS</p>
+                  <button className="btn btn-primary">Go</button>
+                </div>
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="wd-dashboard-course">
-          <img
-            src="/images/reactjs.jpg"
-            width={200}
-            alt="Pattern Recognition & Computer Vision"
-          />
-          <div>
-            <a
-              className="wd-dashboard-course-link"
-              href="#/Kanbas/Courses/5330/Home"
-            >
-              CS5330 Pattern Recognition & Computer Vision
-            </a>
-            <p className="wd-dashboard-course-title">
-              Image processing and analysis
-            </p>
-            <a href="#/Kanbas/Courses/5330/Home"> Go </a>
+          <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+            <div className="card">
+              <a className="wd-dashboard-course-link text-decoration-none text-dark" href="#/Kanbas/Courses/5010/Home">
+                <img src="/images/reactjs.jpg" className="card-img-top" alt="Information Assurance" />
+                <div className="card-body">
+                  <h5 className="wd-dashboard-course-title card-title" title="CY5010 Information Assurance">CY5010 Information Assurance</h5>
+                  <p className="wd-dashboard-course-year" title="2024">Summer 2024</p>
+                  <p className="card-text" title="Security principles and practices">Security principles and practices</p>
+                  <button className="btn btn-primary">Go</button>
+                </div>
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="wd-dashboard-course">
-          <img
-            src="/images/reactjs.jpg"
-            width={200}
-            alt="Database Management Systems"
-          />
-          <div>
-            <a
-              className="wd-dashboard-course-link"
-              href="#/Kanbas/Courses/5200/Home"
-            >
-              CS5200 Database Management Systems
-            </a>
-            <p className="wd-dashboard-course-title">
-              Database design and management
-            </p>
-            <a href="#/Kanbas/Courses/5200/Home"> Go </a>
+          <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+            <div className="card">
+              <a className="wd-dashboard-course-link text-decoration-none text-dark" href="#/Kanbas/Courses/5330/Home">
+                <img src="/images/reactjs.jpg" className="card-img-top" alt="Pattern Recognition & Computer Vision" />
+                <div className="card-body">
+                  <h5 className="wd-dashboard-course-title card-title" title="CS5330 Pattern Recognition & Computer Vision">CS5330 Pattern Recognition & Computer Vision</h5>
+                  <p className="wd-dashboard-course-year" title="2024">Summer 2024</p>
+                  <p className="card-text" title="Image processing and analysis">Image processing and analysis</p>
+                  <button className="btn btn-primary">Go</button>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>

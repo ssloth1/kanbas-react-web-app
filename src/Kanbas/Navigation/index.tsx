@@ -48,7 +48,7 @@ import React from 'react';
   
         <NavLink
           id="wd-course-link"
-          to="/Kanbas/Courses"
+          to="/Kanbas/Courses/*"
           className={getLinkClass}
         >
           <LiaBookSolid className="fs-1" />

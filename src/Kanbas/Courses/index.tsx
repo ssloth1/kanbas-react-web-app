@@ -1,19 +1,34 @@
-import CoursesNavigation from "./Navigation";
-import Modules from "./Modules";
-import Home from "./Home";
-import Grades from "./Grades";
-import { Navigate, Route, Routes } from "react-router";
-import Assignments from "./Assignments";
-import AssignmentEditor from "./Assignments/Editor";
-import { FaAlignJustify } from "react-icons/fa";
+import React from 'react';
+import { Navigate, Route, Routes, useParams, useLocation } from 'react-router';
+import CoursesNavigation from './Navigation';
+import Modules from './Modules';
+import Home from './Home';
+import Grades from './Grades';
+import Assignments from './Assignments';
+import AssignmentEditor from './Assignments/Editor';
+import { FaAlignJustify } from 'react-icons/fa';
+import * as db from '../Database';
 
 export default function Courses() {
+  const { cid } = useParams();
+  const course = db.courses.find((course) => course._id === cid);
+  const { pathname } = useLocation();
+
+  const section = pathname.split('/')[3] as keyof typeof sectionNames;
+
+  const sectionNames = {
+    Home: 'Home',
+    Modules: 'Modules',
+    Assignments: 'Assignments',
+    Grades: 'Grades'
+  };
+
   return (
     <div id="wd-courses">
       <div className="courses-header">
         <h2 className="text-danger">
           <FaAlignJustify className="me-4 fs-4 mb-1" />
-          CS5610 Web Development
+          {course && course.name} {section && `> ${sectionNames[section]}`}
         </h2>
         <hr />
       </div>
@@ -25,7 +40,7 @@ export default function Courses() {
             <Route path="Home" element={<Home />} />
             <Route path="Modules" element={<Modules />} />
             <Route path="Assignments" element={<Assignments />} />
-            <Route path="Assignments/:id" element={<AssignmentEditor />} />
+            <Route path="Assignments/:cid" element={<AssignmentEditor />} />
             <Route path="Grades" element={<Grades />} />
           </Routes>
         </div>

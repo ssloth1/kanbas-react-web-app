@@ -12,3 +12,13 @@
   right: 1rem;
   transform: translateY(-50%);
 }
+
+/** Disabled styles, for the assign to checkboxes and label */
+.wd-disabled-label {
+  color: #b3b3b3;
+  pointer-events: none;
+}
+
+.wd-disabled-checkbox {
+  pointer-events: none;
+}

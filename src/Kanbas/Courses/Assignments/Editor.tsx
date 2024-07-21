@@ -52,7 +52,6 @@ export default function AssignmentEditor() {
     setAssignEveryone(!assignEveryone);
   };
 
-
   // Get the names of the students that the assignment is assigned to
   const selectedStudents = assignTo.map(id => {
     const student = students.find(student => student._id === id);
@@ -76,7 +75,13 @@ export default function AssignmentEditor() {
       <h5>Assignment Name</h5>
       <input id="wd-name" defaultValue={assignment.title} className="form-control mb-3" />
 
-      <textarea id="wd-description" className="form-control mb-3" defaultValue={assignment.description || ""} />
+      <textarea
+        id="wd-description"
+        className="form-control mb-3"
+        defaultValue={
+          "The assignment is available online. \nSubmit a link to the landing page of your web application running on Netlify. \nThe landing page should include the following:\n- Your full name and section\n- Links to each of the lab assignments\n- Links to the Kanbas application\n- Links to all relevant source code repositories.\n\nThe Kanbas application should include a link to navigate back to the landing page."
+        }
+      />
 
       <div className="row mb-3 align-items-center">
         <div className="col-md-2">
@@ -173,6 +178,7 @@ export default function AssignmentEditor() {
         <Link to={`/Kanbas/Courses/${cid}/Assignments`} className="btn btn-secondary me-2">Cancel</Link>
         <Link to={`/Kanbas/Courses/${cid}/Assignments`} className="btn btn-danger">Save</Link>
       </div>
+
     </div>
   );
 }

@@ -5,14 +5,16 @@ import { BsGripVertical } from "react-icons/bs";
 import LessonControlButtons from "./LessonControlButtons";
 import * as db from "../../Database";
 
-
 export default function Modules() {
 	const { cid } = useParams();
 	const modules = db.modules.filter((module) => module.course === cid);
 
 	return (
 		<div id="wd-modules">
-			<ModulesControls /><br /><br /><br /><br />
+			<div className="wd-modules-controls-container">
+				<ModulesControls />
+			</div>
+			<br />
 			<ul id="wd-modules" className="list-group rounded-0">
 				{modules.map((module) => (
 					<li key={module._id} className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">

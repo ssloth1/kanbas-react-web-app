@@ -19,5 +19,5 @@ See deployment on Netlify: https://soft-florentine-0ea3f0.netlify.app/#/Kanbas/D
 
 ## Acknowledgements
 Special thanks to Dr. Jose Annunziato for sample code, starter code, and the teaching assistants. 
-
-
+- https://www.khoury.northeastern.edu/people/jose-annunziato/
+- https://github.com/jannunzi

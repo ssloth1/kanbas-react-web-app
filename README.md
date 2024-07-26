@@ -19,7 +19,6 @@ See deployment on Netlify: https://soft-florentine-0ea3f0.netlify.app/#/Kanbas/D
 - **Bootstrap**: CSS framework for responsive design.
 
 ## Acknowledgements
-
-Special thanks to the course instructors and fellow students for their support and collaboration on this project.
+Special thanks to Dr. Jose Annunziato for sample code, starter code, and the teaching assistants. 
 
 

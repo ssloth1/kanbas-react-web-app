@@ -15,7 +15,6 @@ See deployment on Netlify: https://soft-florentine-0ea3f0.netlify.app/#/Kanbas/D
 - **Express**: Backend framework for building RESTful APIs.
 - **React**: Frontend library for building user interfaces.
 - **Node.js**: JavaScript runtime for server-side development.
-- **TypeScript**: Typed superset of JavaScript for better code quality.
 - **Bootstrap**: CSS framework for responsive design.
 
 ## Acknowledgements

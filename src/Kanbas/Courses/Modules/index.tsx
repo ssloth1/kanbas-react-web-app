@@ -14,13 +14,11 @@ export default function Modules() {
 	const { modules } = useSelector((state: any) => state.modulesReducer);
 	const dispatch = useDispatch();
 
-	// Interface for Lesson,
-	// This is just a temporary solution, since im getting errors 
-	// that the lesson has type any
-	interface Lesson {
+	// define a lesson
+	type Lesson = {
 		_id: string;
 		name: string;
-	}
+	};
 
 	return (
 		<div className="wd-modules">

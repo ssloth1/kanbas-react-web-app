@@ -1,5 +1,4 @@
-import React from 'react';
-import { FaPlus, FaSearch } from "react-icons/fa";
+import { FaPlus, FaSearch } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function SearchControls() {

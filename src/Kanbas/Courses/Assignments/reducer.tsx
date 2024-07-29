@@ -25,15 +25,19 @@ const assignmentsSlice = createSlice({
 	initialState,
 	reducers: {
 		addAssignment(state, action: PayloadAction<Assignment>) {
+			console.log('Reducer: Adding assignment', action.payload);
 			state.assignments.push(action.payload);
+			console.log('Reducer: Updated assignments', state.assignments);
 		},
 		deleteAssignment(state, action: PayloadAction<string>) {
 			state.assignments = state.assignments.filter(assignment => assignment._id !== action.payload);
+			console.log('Reducer: Updated assignments after deletion', state.assignments);
 		},
 		updateAssignment(state, action: PayloadAction<Assignment>) {
 			const index = state.assignments.findIndex(assignment => assignment._id === action.payload._id);
 			if (index !== -1) {
 				state.assignments[index] = action.payload;
+				console.log('Reducer: Updated assignment', state.assignments[index]);
 			}
 		},
 	},

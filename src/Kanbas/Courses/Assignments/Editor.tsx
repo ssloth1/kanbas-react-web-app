@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { addAssignment, updateAssignment } from './reducer';
 import './Editor.css';
 
+// Define the Assignment type
 type Assignment = {
   _id: string;
   title: string;
@@ -15,18 +16,22 @@ type Assignment = {
   availableUntil?: string;
 };
 
-const AssignmentEditor: React.FC = () => {
+export default function AssignmentEditor() {
+
+  // Get the course and assignment IDs from the URL params
   const { cid, aid } = useParams<{ cid: string; aid: string }>();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const assignments = useSelector((state: { assignments: { assignments: Assignment[] } }) => state.assignments.assignments);
 
+  // Find the existing assignment, if any
   const existingAssignment = assignments.find(a => a._id === aid);
 
+  // Initialize the assignment state with the existing assignment or defaults, if no existing assignment
   const [assignment, setAssignment] = useState<Assignment>({
     _id: existingAssignment?._id || '',
     title: existingAssignment?.title || '',
-    course: existingAssignment?.course || cid!, // Ensure course is set
+    course: existingAssignment?.course || cid!,
     description: existingAssignment?.description || '',
     points: existingAssignment?.points || 0,
     dueDate: existingAssignment?.dueDate || '',
@@ -34,20 +39,33 @@ const AssignmentEditor: React.FC = () => {
     availableUntil: existingAssignment?.availableUntil || '',
   });
 
+  // Update the assignment state when the existing assignment changes
+  useEffect(() => {
+    if (aid && existingAssignment) {
+      setAssignment(existingAssignment);
+    }
+  }, [aid, existingAssignment]);
+
+  // Handle changes to the form fields, updating the assignment state
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setAssignment(prev => ({ ...prev, [name]: value }));
   };
 
+  // Save the assignment to the store and navigate back to the assignments list
   const handleSave = () => {
-    if (aid) {
+    // Dispatch the addAssignment or updateAssignment action based on the assignment ID
+    if (aid && existingAssignment) {
       dispatch(updateAssignment(assignment));
+      // Update the assignment in the store
     } else {
-      dispatch(addAssignment({ ...assignment, _id: Date.now().toString() }));
+      const newAssignment = { ...assignment, _id: Date.now().toString() };
+      dispatch(addAssignment(newAssignment));
     }
     navigate(`/Kanbas/Courses/${cid}/Assignments`);
   };
 
+  // Cancel editing and navigate back to the assignments list
   const handleCancel = () => {
     navigate(`/Kanbas/Courses/${cid}/Assignments`);
   };
@@ -138,6 +156,4 @@ const AssignmentEditor: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default AssignmentEditor;
+}

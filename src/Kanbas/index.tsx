@@ -1,3 +1,4 @@
+// src/Kanbas/index.tsx
 import "./styles.css"
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Dashboard from './Dashboard';
@@ -5,7 +6,6 @@ import KanbasNavigation from './Navigation';
 import Courses from './Courses';
 import * as db from "./Database";
 import { useState } from "react";
-import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import store from "./store";
 

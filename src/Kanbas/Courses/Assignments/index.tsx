@@ -1,19 +1,51 @@
-import { useParams, Link } from 'react-router-dom';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { BsGripVertical } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa6";
 import { IoEllipsisVertical } from "react-icons/io5";
 import SearchControls from "./SearchControls";
 import AssignmentControlButtons from "./AssignmentControlButtons";
 import { LuClipboardEdit } from "react-icons/lu";
-import * as db from "../../Database";
+import { deleteAssignment } from './reducer';
 
-export default function Assignments() {
-  const { cid } = useParams();
-  const assignments = db.assignments.filter((assignment) => assignment.course === cid);
+type Assignment = {
+  _id: string;
+  title: string;
+  course: string;
+  description?: string;
+  points?: number;
+  dueDate?: string;
+  availableFrom?: string;
+  availableUntil?: string;
+};
+
+const Assignments: React.FC = () => {
+  const { cid } = useParams<{ cid: string }>();
+  const assignments = useSelector((state: { assignments: { assignments: Assignment[] } }) =>
+    state.assignments.assignments.filter(assignment => assignment.course === cid)
+  );
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleAddAssignment = () => {
+    navigate(`/Kanbas/Courses/${cid}/Assignments/new`);
+  };
+
+  const handleEditAssignment = (id: string) => {
+    navigate(`/Kanbas/Courses/${cid}/Assignments/${id}`);
+  };
+
+  const handleDeleteAssignment = (id: string) => {
+    if (window.confirm('Are you sure you want to remove the assignment?')) {
+      dispatch(deleteAssignment(id));
+    }
+  };
 
   return (
     <div id="wd-assignments">
-      <SearchControls /> <br /><br />
+      <SearchControls />
+      <br /><br />
       <ul id="wd-assignments" className="list-group rounded-0">
         <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
           <div className="d-flex justify-content-between align-items-center p-3 ps-2 bg-secondary">
@@ -25,7 +57,7 @@ export default function Assignments() {
               <div className="border border-dark rounded px-2">
                 40% of Total
               </div>
-              <button className="ms-3 p-0" style={{ background: 'none', border: 'none' }}>
+              <button className="ms-3 p-0" style={{ background: 'none', border: 'none' }} onClick={handleAddAssignment}>
                 <FaPlus className="fs-5" style={{ color: 'black' }} />
               </button>
               <IoEllipsisVertical className="fs-3" />
@@ -40,11 +72,11 @@ export default function Assignments() {
                   <div className="ps-4">
                     {assignment.title}
                     <div className="text-muted">
-                      <span className="text-danger">Multiple Modules</span> | <strong>Due</strong> May 27 at 11:59pm | 100 pts
+                      <span className="text-danger">Multiple Modules</span> | <strong>Due</strong> {assignment.dueDate} | {assignment.points} pts
                     </div>
                   </div>
                 </Link>
-                <AssignmentControlButtons />
+                <AssignmentControlButtons handleDelete={() => handleDeleteAssignment(assignment._id)} />
               </li>
             ))}
           </ul>
@@ -52,4 +84,6 @@ export default function Assignments() {
       </ul>
     </div>
   );
-}
+};
+
+export default Assignments;

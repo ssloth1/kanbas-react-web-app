@@ -1,13 +1,18 @@
 import { FaPlus } from "react-icons/fa6";
 import GreenCheckmark from "./GreenCheckmark";
 import GreyUnpublish from "./GreyUnpublish";
+import ModuleEditor from "./ModuleEditor";
 
-export default function ModulesControls() {
+export default function ModulesControls(
+    { moduleName, setModuleName, addModule }:
+        { moduleName: string; setModuleName: (title: string) => void; addModule: () => void; }) {
     return (
+
         <div id="wd-modules-controls" className="container-fluid">
             <div className="row justify-content-end g-2">
                 <div className="col-auto">
-                    <button id="wd-add-module-btn" className="btn btn-lg btn-danger">
+                    <button className="btn btn-lg btn-danger me-1 float-end"
+                        data-bs-toggle="modal" data-bs-target="#wd-add-module-dialog" >
                         <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
                         Module
                     </button>
@@ -57,6 +62,9 @@ export default function ModulesControls() {
                         Collapse All
                     </button>
                 </div>
+                <ModuleEditor dialogTitle="Add Module" moduleName={moduleName}
+                    setModuleName={setModuleName} addModule={addModule} />
+
             </div>
         </div>
     );

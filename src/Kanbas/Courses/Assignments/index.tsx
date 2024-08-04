@@ -1,4 +1,6 @@
+// kanbas-react-web-app/Kanbas/Courses/Assignments/index.tsx
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { BsGripVertical } from 'react-icons/bs';
 import { FaPlus } from 'react-icons/fa6';
@@ -7,7 +9,8 @@ import { format } from 'date-fns';
 import SearchControls from './SearchControls';
 import AssignmentControlButtons from './AssignmentControlButtons';
 import { LuClipboardEdit } from 'react-icons/lu';
-import { deleteAssignment } from './reducer';
+import { deleteAssignment, setAssignments } from './reducer';
+import * as client from './client';
 
 type Assignment = {
   _id: string;
@@ -27,24 +30,29 @@ export default function Assignments() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // Add a new assignment
+  useEffect(() => {
+    const fetchAssignments = async () => {
+      const assignments = await client.findAssignmentsForCourse(cid as string);
+      dispatch(setAssignments(assignments));
+    };
+    fetchAssignments();
+  }, [cid, dispatch]);
+
   const handleAddAssignment = () => {
     navigate(`/Kanbas/Courses/${cid}/Assignments/new`);
   };
 
-  // Edit an existing assignment
   const handleEditAssignment = (id: string) => {
     navigate(`/Kanbas/Courses/${cid}/Assignments/${id}`);
   };
 
-  // Delete an assignment
-  const handleDeleteAssignment = (id: string) => {
+  const handleDeleteAssignment = async (id: string) => {
     if (window.confirm('Are you sure you want to remove the assignment?')) {
+      await client.deleteAssignment(id);
       dispatch(deleteAssignment(id));
     }
   };
 
-  // helps format the date similarly to Canvas
   const formatDate = (dateString: string | undefined) => {
     if (!dateString) return 'TBD';
     const date = new Date(dateString);

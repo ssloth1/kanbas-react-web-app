@@ -1,3 +1,4 @@
+// kanbas-react-web-app/Kanbas/Courses/Assignments/reducer.tsx
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import * as db from '../../Database';
 
@@ -24,24 +25,23 @@ const assignmentsSlice = createSlice({
 	name: 'assignments',
 	initialState,
 	reducers: {
+		setAssignments(state, action: PayloadAction<Assignment[]>) {
+			state.assignments = action.payload;
+		},
 		addAssignment(state, action: PayloadAction<Assignment>) {
-			console.log('Reducer: Adding assignment', action.payload);
 			state.assignments.push(action.payload);
-			console.log('Reducer: Updated assignments', state.assignments);
 		},
 		deleteAssignment(state, action: PayloadAction<string>) {
 			state.assignments = state.assignments.filter(assignment => assignment._id !== action.payload);
-			console.log('Reducer: Updated assignments after deletion', state.assignments);
 		},
 		updateAssignment(state, action: PayloadAction<Assignment>) {
 			const index = state.assignments.findIndex(assignment => assignment._id === action.payload._id);
 			if (index !== -1) {
 				state.assignments[index] = action.payload;
-				console.log('Reducer: Updated assignment', state.assignments[index]);
 			}
 		},
 	},
 });
 
-export const { addAssignment, deleteAssignment, updateAssignment } = assignmentsSlice.actions;
+export const { setAssignments, addAssignment, deleteAssignment, updateAssignment } = assignmentsSlice.actions;
 export default assignmentsSlice.reducer;

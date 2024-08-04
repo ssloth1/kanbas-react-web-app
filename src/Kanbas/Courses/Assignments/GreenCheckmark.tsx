@@ -1,3 +1,4 @@
+// kanbas-react-web-app/src/Kanbas/Courses/Assignments/GreenCheckmark.tsx
 import { FaCheckCircle, FaCircle } from "react-icons/fa";
 
 export default function GreenCheckmark() {

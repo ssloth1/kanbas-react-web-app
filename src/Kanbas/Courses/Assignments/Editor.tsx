@@ -1,8 +1,10 @@
+// kanbas-react-web-app/Kanbas/Courses/Assignments/Editor.tsx
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { addAssignment, updateAssignment } from './reducer';
 import './Editor.css';
+import * as client from './client';
 
 // Define the Assignment type
 type Assignment = {
@@ -17,17 +19,13 @@ type Assignment = {
 };
 
 export default function AssignmentEditor() {
-
-  // Get the course and assignment IDs from the URL params
   const { cid, aid } = useParams<{ cid: string; aid: string }>();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const assignments = useSelector((state: { assignments: { assignments: Assignment[] } }) => state.assignments.assignments);
 
-  // Find the existing assignment, if any
   const existingAssignment = assignments.find(a => a._id === aid);
 
-  // Initialize the assignment state with the existing assignment or defaults, if no existing assignment
   const [assignment, setAssignment] = useState<Assignment>({
     _id: existingAssignment?._id || '',
     title: existingAssignment?.title || '',
@@ -39,33 +37,29 @@ export default function AssignmentEditor() {
     availableUntil: existingAssignment?.availableUntil || '',
   });
 
-  // Update the assignment state when the existing assignment changes
   useEffect(() => {
     if (aid && existingAssignment) {
       setAssignment(existingAssignment);
     }
   }, [aid, existingAssignment]);
 
-  // Handle changes to the form fields, updating the assignment state
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setAssignment(prev => ({ ...prev, [name]: value }));
   };
 
-  // Save the assignment to the store and navigate back to the assignments list
-  const handleSave = () => {
-    // Dispatch the addAssignment or updateAssignment action based on the assignment ID
+  const handleSave = async () => {
     if (aid && existingAssignment) {
+      await client.updateAssignment(assignment);
       dispatch(updateAssignment(assignment));
-      // Update the assignment in the store
     } else {
       const newAssignment = { ...assignment, _id: Date.now().toString() };
+      await client.createAssignment(cid as string, newAssignment);
       dispatch(addAssignment(newAssignment));
     }
     navigate(`/Kanbas/Courses/${cid}/Assignments`);
   };
 
-  // Cancel editing and navigate back to the assignments list
   const handleCancel = () => {
     navigate(`/Kanbas/Courses/${cid}/Assignments`);
   };

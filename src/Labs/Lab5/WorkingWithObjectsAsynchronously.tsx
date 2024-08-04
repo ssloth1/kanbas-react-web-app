@@ -23,7 +23,6 @@ export default function WorkingWithObjectsAsynchronously() {
 			<button className="btn btn-primary me-2" onClick={() => updateTitle(assignment.title)} >
 				Update Title
 			</button>
-
 			<textarea defaultValue={assignment.description} className="form-control mb-2"
 				onChange={(e) => setAssignment({ ...assignment, description: e.target.value })} />
 			<input type="date" className="form-control mb-2" defaultValue={assignment.due}

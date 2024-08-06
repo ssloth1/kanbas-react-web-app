@@ -1,3 +1,4 @@
+// kanbas-react-web-app/Kanbas/Courses/Assignments/SearchControls.tsx
 import { FaPlus, FaSearch } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
 

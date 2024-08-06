@@ -6,7 +6,8 @@ import Grades from './Grades';
 import Assignments from './Assignments';
 import AssignmentEditor from './Assignments/Editor';
 import { FaAlignJustify } from 'react-icons/fa';
-//import * as db from '../Database';
+import PeopleTable from './People/PeopleTable';
+import PeopleDetails from './People/Details';
 
 export default function Courses({ courses }: { courses: any[] }) {
 	const { cid } = useParams();
@@ -20,7 +21,8 @@ export default function Courses({ courses }: { courses: any[] }) {
 		Zoom: 'Zoom',
 		Assignments: 'Assignments',
 		Quizzes: 'Quizzes',
-		Grades: 'Grades'
+		Grades: 'Grades',
+		People: 'People'
 	};
 
 	const section = pathname.split('/')[4] as keyof typeof sectionNames;
@@ -41,12 +43,20 @@ export default function Courses({ courses }: { courses: any[] }) {
 						<Route path="/" element={<Navigate to="Home" />} />
 						<Route path="Home" element={<Home />} />
 						<Route path="Modules" element={<Modules />} />
-						<Route path="Piazza" element={<div>Zoom Stuff Will Go Here ... one day ... maybe</div>} />
-						<Route path="Zoom" element={<div>Zoom Stuff Will Go Here ... one day ... maybe</div>} />
+						<Route
+							path="Piazza"
+							element={<a href="https://piazza.com" target="_blank" rel="noopener noreferrer">Go to Piazza</a>}
+						/>
+						<Route
+							path="Zoom"
+							element={<a href="https://zoom.us" target="_blank" rel="noopener noreferrer">Go to Zoom</a>}
+						/>
 						<Route path="Assignments" element={<Assignments />} />
 						<Route path="Assignments/:aid" element={<AssignmentEditor />} />
-						<Route path="Quizzes" element={<div>Zoom Stuff Will Go Here ... one day ... maybe</div>} />
+						<Route path="Quizzes" element={<div>No Quizzes /:</div>} />
 						<Route path="Grades" element={<Grades />} />
+						<Route path="People" element={<PeopleTable />} />
+						<Route path="People/:uid" element={<PeopleTable />} />
 					</Routes>
 				</div>
 			</div>

@@ -4,7 +4,7 @@ import "./index.css";
 export default function CoursesNavigation() {
 	const { cid } = useParams();
 
-	const links = ["Home", "Modules", "Piazza", "Zoom", "Assignments", "Quizzes", "Grades"];
+	const links = ["Home", "Modules", "Piazza", "Zoom", "Assignments", "Quizzes", "Grades", "People"];
 
 	const getNavLinkClass = ({ isActive }: { isActive: boolean }) =>
 		isActive ? "list-group-item border border-0 active" : "list-group-item text-danger border border-0";

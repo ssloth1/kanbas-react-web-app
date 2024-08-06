@@ -22,4 +22,3 @@ export const updateCourse = async (course: any) => {
 	return response.data;
 };
 
-

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import * as client from "./client";
-import { FaUserFriends } from "react-icons/fa";
+import { FaUserFriends, FaPlus } from "react-icons/fa";
 import { format } from "date-fns";
 
 export default function PeopleTable() {
@@ -57,12 +57,31 @@ export default function PeopleTable() {
 		}
 	};
 
+	const createUser = async () => {
+		const user = await client.createUser({
+			firstName: "New",
+			lastName: `User${users.length + 1}`,
+			username: `newuser${Date.now()}`,
+			password: "password123",
+			section: "S101",
+			role: "STUDENT",
+		});
+		setUsers([...users, user]);
+	};
+
 	useEffect(() => {
 		fetchUsers();
 	}, []);
 
 	return (
 		<div id="wd-people-table">
+			<button
+				onClick={createUser}
+				className="float-end btn btn-danger wd-add-people"
+			>
+				<FaPlus className="me-2" />
+				People
+			</button>
 			<input
 				onChange={(e) => filterUsersByName(e.target.value)}
 				placeholder="Search people"
@@ -100,7 +119,7 @@ export default function PeopleTable() {
 								<Link
 									to={`/Kanbas/Courses/${cid}/People/${user._id}`}
 									className="wd-user-link"
-									style={{ textDecoration: 'none', color: 'inherit' }}
+									style={{ textDecoration: "none", color: "inherit" }}
 								>
 									<span className="wd-first-name">{user.firstName}</span>
 									<span className="wd-space"> </span>
@@ -110,7 +129,9 @@ export default function PeopleTable() {
 							<td className="wd-login-id">{user.loginId}</td>
 							<td className="wd-section">{user.section}</td>
 							<td className="wd-role">{user.role}</td>
-							<td className="wd-last-activity">{formatDate(user.lastActivity)}</td>
+							<td className="wd-last-activity">
+								{formatDate(user.lastActivity)}
+							</td>
 							<td className="wd-total-activity">{user.totalActivity}</td>
 						</tr>
 					))}

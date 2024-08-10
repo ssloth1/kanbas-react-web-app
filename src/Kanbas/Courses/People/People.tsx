@@ -100,6 +100,7 @@ export default function PeopleTable() {
 								<Link
 									to={`/Kanbas/Courses/${cid}/People/${user._id}`}
 									className="wd-user-link"
+									style={{ textDecoration: 'none', color: 'inherit' }}
 								>
 									<span className="wd-first-name">{user.firstName}</span>
 									<span className="wd-space"> </span>

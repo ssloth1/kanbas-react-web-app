@@ -1,0 +1,29 @@
+#wd-account-navigation {
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	padding: 0;
+}
+
+.account-link {
+	padding: 15px;
+	text-align: center;
+	background-color: white;
+	color: #D41C2B;
+	text-decoration: none;
+	border: none;
+
+}
+
+.account-link.active {
+	background-color: #f0f0f0;
+	border-radius: 12px;
+	color: black;
+	font-weight: bold;
+}
+
+.account-link:hover {
+	background-color: #e0e0e0;
+	border-radius: 12px;
+	color: black;
+}

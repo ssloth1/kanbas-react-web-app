@@ -22,16 +22,32 @@ export default function Signup() {
 
 
 	return (
-		<div className="wd-signup-screen">
-			<h1>Sign up</h1>
-			{error && <div className="wd-error alert alert-danger">{error}</div>}
-
-			<input value={user.username} onChange={(e) => setUser({ ...user, username: e.target.value })}
-				className="wd-username form-control mb-2" placeholder="username" />
-			<input value={user.password} onChange={(e) => setUser({ ...user, password: e.target.value })} type="password"
-				className="wd-password form-control mb-2" placeholder="password" />
-			<button onClick={signup} className="wd-signup-btn btn btn-primary mb-2"> Sign up </button><br />
-			<Link to="/Kanbas/Account/Signin" className="wd-signin-link">Sign in</Link>
+		<div className="container d-flex justify-content-center align-items-center vh-100">
+			<div className="col-12 col-md-6 col-lg-4">
+				<h1 className="text-center mb-4">Sign up</h1>
+				{error && <div className="alert alert-danger">{error}</div>}
+				<input
+					value={user.username}
+					onChange={(e) => setUser({ ...user, username: e.target.value })}
+					className="form-control mb-3"
+					placeholder="Username"
+				/>
+				<input
+					value={user.password}
+					onChange={(e) => setUser({ ...user, password: e.target.value })}
+					type="password"
+					className="form-control mb-3"
+					placeholder="Password"
+				/>
+				<button onClick={signup} className="btn btn-primary w-100 mb-3">
+					Sign up
+				</button>
+				<div className="text-center">
+					<Link to="/Kanbas/Account/Signin">
+						Already have an account? Sign in
+					</Link>
+				</div>
+			</div>
 		</div>
 	);
 }

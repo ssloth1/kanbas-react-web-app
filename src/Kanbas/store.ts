@@ -8,7 +8,7 @@ const store = configureStore({
 	reducer: {
 		modulesReducer,
 		assignments: assignmentsReducer,
-		account: accountReducer,
+		accountReducer,
 	},
 });
 

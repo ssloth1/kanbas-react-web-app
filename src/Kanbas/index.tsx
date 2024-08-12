@@ -6,6 +6,7 @@ import KanbasNavigation from './Navigation';
 import Account from './Account';
 import Courses from './Courses';
 import ProtectedRoute from "./ProtectedRoute";
+import AccountNavigation from "./Account/Navigation";
 import * as client from "./Courses/client";
 import { useState, useEffect } from "react";
 import { Provider } from "react-redux";
@@ -72,7 +73,7 @@ export default function Kanbas() {
           <div className="flex-fill p-4">
             <Routes>
               <Route path="/" element={<Navigate to="Dashboard" />} />
-              <Route path="Account" element={<h1>Account</h1>} />
+              <Route path="Account" element={<AccountNavigation />} />
               <Route path="/Account/*" element={<Account />} />
               <Route path="Dashboard" element={<ProtectedRoute>
                 <Dashboard
